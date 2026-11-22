@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DineFlow — Restaurant Management Demo
 
-## Getting Started
+DineFlow is a **frontend portfolio demo** of a restaurant management system for the fictional venue **Lumina Kitchen**. It showcases public ordering, kitchen operations, billing, and guest engagement using Next.js, Tailwind CSS, and browser LocalStorage.
 
-First, run the development server:
+> This is not a production restaurant platform. Payments, loyalty, and customer sessions are simulated. There is no real backend, authentication, or payment gateway.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Key features
+
+- Public site: menu, chefs, reservations, contact, cart & checkout
+- Admin: menu, orders, tables, reservations, inventory, recipes, suppliers, staff/shifts, billing, expenses, reports, coupons, loyalty, reviews, engagement
+- Staff & kitchen dashboards for service and KDS workflows
+- Customer demo session (`cus-1`): orders, tracking, favorites, loyalty, coupons, reviews, notifications
+- Simulated invoices, payments, refunds, and financial reports (PKR)
+
+## Tech stack
+
+- Next.js 16 (App Router)
+- React 19
+- Tailwind CSS 4
+- TypeScript
+- lucide-react
+- Browser LocalStorage (`dineflow:v5`)
+
+## Dashboards
+
+| Area | Path |
+|------|------|
+| Public site | `/` |
+| Admin | `/admin` |
+| Staff | `/staff` |
+| Kitchen | `/kitchen` |
+| Customer (demo) | `/customer` |
+
+## Project structure
+
+```
+app/                  # Routes (public, admin, staff, kitchen, customer)
+components/           # UI, layout, domain components, DataProvider
+lib/data/             # Store, seed, actions, billing, engagement, ops
+lib/storage/          # LocalStorage keys and safe read/write
+lib/mock-data/        # Seed content and restaurant info
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Local development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+## Scripts
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run dev      # development server
+npm run build    # production build
+npm run start    # serve production build
+npm run lint     # ESLint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Typecheck (optional):
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npx tsc --noEmit
+```
+
+## Environment variables
+
+No secrets are required. See `.env.example` for optional placeholders only.
+
+Never commit `.env.local` or real API keys. Do not put private keys in `NEXT_PUBLIC_*` variables.
+
+## Demo data & reset
+
+- Data lives in browser LocalStorage under `dineflow:v5`.
+- Older keys (`v2`–`v4`) migrate automatically without wiping records.
+- Admin → **Settings → Reset demo data** (confirmation required) reseeds the demo dataset.
+
+## Demo limitations
+
+- Fictional restaurant and guest content
+- LocalStorage only (no multi-device sync)
+- Demo customer session (not real auth)
+- Simulated payments and loyalty
+- No POS, SMS, email, or delivery-provider integrations
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Push this repository to GitHub (or import the folder in the Vercel dashboard).
+2. Create a new Vercel project from the repo.
+3. Framework preset: **Next.js** (auto-detected).
+4. Build command: `npm run build` · Output: Next.js default.
+5. No required environment variables for the core demo.
+6. Deploy. After deploy, optionally set `NEXT_PUBLIC_SITE_URL` to your production URL and update `metadataBase` / sitemap base if you want absolute SEO URLs.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This README does **not** claim a live deployment URL unless you have deployed the project yourself.
