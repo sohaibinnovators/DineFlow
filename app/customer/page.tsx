@@ -151,20 +151,12 @@ export default function CustomerOverviewPage() {
             </Button>
           </Link>
           <Link href="/customer/loyalty">
-            <Button
-              variant="outline"
-              size="sm"
-              className="border-white/30 bg-transparent text-white hover:bg-white/10"
-            >
+            <Button variant="outlineInverse" size="sm">
               Loyalty
             </Button>
           </Link>
           <Link href="/menu">
-            <Button
-              variant="outline"
-              size="sm"
-              className="border-white/30 bg-transparent text-white hover:bg-white/10"
-            >
+            <Button variant="outlineInverse" size="sm">
               Browse menu
             </Button>
           </Link>

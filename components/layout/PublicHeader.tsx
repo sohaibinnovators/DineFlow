@@ -63,7 +63,7 @@ export function PublicHeader() {
 
         <div className="hidden items-center gap-2 lg:flex">
           <Link href="/cart" className="relative mr-1">
-            <Button variant="ghost" className="text-white hover:bg-white/10">
+            <Button variant="ghostInverse">
               <ShoppingCart className="h-4 w-4" />
               Cart
               {cartCount > 0 ? (
@@ -74,17 +74,13 @@ export function PublicHeader() {
             </Button>
           </Link>
           <Link href="/login">
-            <Button variant="ghost" className="text-white hover:bg-white/10">
-              Login
-            </Button>
+            <Button variant="ghostInverse">Login</Button>
           </Link>
           <Link href="/signup">
             <Button variant="secondary">Sign Up</Button>
           </Link>
           <Link href="/admin">
-            <Button variant="outline" className="border-white/20 bg-transparent text-white hover:bg-white/10">
-              Dashboards
-            </Button>
+            <Button variant="outlineInverse">Dashboards</Button>
           </Link>
         </div>
 
@@ -121,7 +117,7 @@ export function PublicHeader() {
             ))}
             <div className="mt-3 grid gap-2">
               <Link href="/login" onClick={() => setOpen(false)}>
-                <Button variant="outline" className="w-full border-white/20 bg-transparent text-white">
+                <Button variant="outlineInverse" className="w-full">
                   Login
                 </Button>
               </Link>
@@ -131,7 +127,7 @@ export function PublicHeader() {
                 </Button>
               </Link>
               <Link href="/admin" onClick={() => setOpen(false)}>
-                <Button variant="ghost" className="w-full text-white hover:bg-white/10">
+                <Button variant="ghostInverse" className="w-full">
                   Open Dashboards
                 </Button>
               </Link>
